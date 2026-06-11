@@ -8,6 +8,8 @@ import { RoleDirectiveDirective } from './role-directive.directive';
 import { AdminComponent } from './admin/admin.component';
 import { ReversePipe } from './reverse.pipe';
 import { StudentService } from './Services/student.service';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,13 @@ import { StudentService } from './Services/student.service';
     HighlightDirective,
     RoleDirectiveDirective,
     AdminComponent,
-    ReversePipe
+    ReversePipe,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

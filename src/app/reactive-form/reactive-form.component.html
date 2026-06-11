@@ -1,0 +1,69 @@
+<p>reactive-form works!</p>
+
+<!-- 
+FormControl = One Field
+
+FormGroup = Form
+
+Validators = Rules
+
+Errors = Violations
+
+Touched = User Visited
+
+Dirty = User Changed
+
+Valid = Pass
+
+Invalid = Fail -->
+<div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" />
+        <br>
+
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email" />
+
+        <span *ngIf="email?.errors">
+
+            <p *ngIf="email?.hasError('required')">
+                Email Required
+            </p>
+
+            <p *ngIf="email?.hasError('email')">
+                Invalid Email Format
+            </p>
+
+        </span>
+        <br>
+
+        <label for="password">Password:</label>
+        <input id="password" type="password" formControlName="password" />
+        <div *ngIf="password?.errors">
+
+            <p *ngIf="password?.hasError('required')">
+                Password Required
+            </p>
+
+            <p *ngIf="password?.hasError('minlength')">
+                Minimum 8 Characters Required
+            </p>
+
+            <p *ngIf="password?.hasError('passwordStrength') && form.get('password')?.touched" style="color: red;">
+                {{ password?.getError('passwordStrength') }}
+            </p>
+
+        </div>
+        <br>
+
+        <button [disabled]="form.invalid">
+            Submit
+        </button>
+    </form>
+
+
+
+    <br>
+    <hr>
+</div>

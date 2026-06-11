@@ -5,12 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HighlightDirective } from './highlight.directive';
 import { RoleDirectiveDirective } from './role-directive.directive';
+import { AdminComponent } from './admin/admin.component';
+import { ReversePipe } from './reverse.pipe';
+import { StudentService } from './Services/student.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HighlightDirective,
-    RoleDirectiveDirective
+    RoleDirectiveDirective,
+    AdminComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
